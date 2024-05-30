@@ -1,2 +1,6 @@
 export * from "./User.Services"
 export * from "./Actorproducer.Services"
+export * from "./Movie.Services"
+export * from "./Theater.Services"
+export * from "./MovieTime.Services"
+export * from "./Booking.Services"

@@ -17,21 +17,22 @@ export class UserControllers {
       res.status(400).json({ message: error.message, status: false });
     }
   }
-  async UpdateUser(req: Request, res: Response) {
+  async UpdateUser(req: NewRequest, res: Response) {
     try {
-      const { id } = req.query;
+      const { Id } = req;
+      console.log(Id)
       let Data: IUser = req.body;
       Data.password = await bcrypt.hash(Data.password, 10);
-      const UserData = await UserService.updateUser(id as string, Data);
+      const UserData = await UserService.updateUser(Id as string, Data);
       res.status(200).json(UserData);
     } catch (error: any) {
       res.status(400).json({ message: error.message, status: false });
     }
   }
-  async DeleteUser(req: Request, res: Response) {
+  async DeleteUser(req: NewRequest, res: Response) {
     try {
-      const { id } = req.query;
-      const UserData = await UserService.deleteUser(id as string);
+      const { Id } = req;
+      const UserData = await UserService.deleteUser(Id as string);
       res.status(200).json(UserData);
     } catch (error: any) {
       res.status(400).json({ message: error.message, status: false });
