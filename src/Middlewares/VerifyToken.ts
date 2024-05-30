@@ -18,9 +18,10 @@ export class VerifyToken {
           //   console.log(req.Role)
           next();
         } else {
-          res
-            .status(400)
-            .json({ message: "Unauthorized Super-Admin..............." });
+          res.status(400).json({
+            message:
+              "Unauthorized Access Only Super-Admin Are Allowed...............",
+          });
         }
       } else {
         res
@@ -46,7 +47,7 @@ export class VerifyToken {
         } else {
           res
             .status(400)
-            .json({ message: "Unauthorized Super-Admin..............." });
+            .json({ message: "Unauthorized Access ..............." });
         }
       } else {
         res
@@ -68,7 +69,10 @@ export class VerifyToken {
           req.Role = data.Role;
           next();
         } else {
-          res.status(400).json({ message: "Unauthorized User..............." });
+          res.status(400).json({
+            message:
+              "Unauthorized Access Only Users Are Allowed...............",
+          });
         }
       } else {
         res
@@ -90,9 +94,10 @@ export class VerifyToken {
           req.Role = data.Role;
           next();
         } else {
-          res
-            .status(400)
-            .json({ message: "Unauthorized Director..............." });
+          res.status(400).json({
+            message:
+              "Unauthorized Access Only Directors Are Allowed...............",
+          });
         }
       } else {
         res
@@ -116,7 +121,10 @@ export class VerifyToken {
         } else {
           res
             .status(400)
-            .json({ message: "Unauthorized Theater-Admin..............." });
+            .json({
+              message:
+                "Unauthorized Access Only Theater-Admin Are Allowed...............",
+            });
         }
       } else {
         res

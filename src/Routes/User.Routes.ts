@@ -7,9 +7,13 @@ const URoute = Router();
 
 URoute.post("/User/create-User", UserController.createUser);
 
-URoute.put("/User/update-User", UserController.UpdateUser);
+URoute.put("/User/update-User", Verify.VerifyForAll, UserController.UpdateUser);
 
-URoute.delete("/User/delete-User", UserController.DeleteUser);
+URoute.delete(
+  "/User/delete-User",
+  Verify.VerifyForAll,
+  UserController.DeleteUser
+);
 
 URoute.get("/User/get-User", Verify.VerifyForAll, UserController.GetUser);
 
